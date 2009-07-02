@@ -16,12 +16,17 @@ module Globalize
       :number_grouping_scheme
 
     @@cache = {}
-    @@translator_class = DbViewTranslatorMemcache
+    @@translator_class = DbViewTranslator
     @@translator = {}
     @@active = nil
     @@base_language = nil
     @@base_language_code = nil
     @@translator = @@translator_class.instance
+
+    def self.translator_class=(klass)
+      @@translator_class = klass
+      @@translator = @@translator_class.instance
+    end
 
     # Is there an active locale?
     def self.active?; !@@active.nil? end
