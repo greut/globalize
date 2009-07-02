@@ -16,7 +16,7 @@ module Globalize
       :number_grouping_scheme
 
     @@cache = {}
-    @@translator_class = DbViewTranslator
+    @@translator_class = DbViewTranslatorMemcache
     @@translator = {}
     @@active = nil
     @@base_language = nil

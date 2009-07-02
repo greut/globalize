@@ -32,6 +32,7 @@ module ActionView # :nodoc: all
       def locate_globalize_path(template_path, use_full_path)
         active_locale = Globalize::Locale.active
         locale_code = active_locale.code
+        template_format ||= :notemplate # for older version of ActionView
         cache_key = "#{locale_code}:#{template_path}:#{template_format}"
         cached = @@globalize_path_cache[cache_key]
         return cached if cached
